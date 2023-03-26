@@ -1,0 +1,315 @@
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s1_UM.sql
+PURPOSE: Fun with Function--- Start with a question
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions  
+
+*****************************************************************************************************************
+-- Q1: How to extract first name from Contact name?
+
+
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s2_UM.sql
+PURPOSE: Fun with Function--- Answer the question
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+
+*****************************************************************************************************************
+---Let's query the database table
+---Let's assume we have a contact name "Uduak Mbaba" and we want to extract the first name "Uduak" from it.
+---To achieve this, we can use the SUBSTRING function in SQL to extract the first name based on the position of the first space.
+
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s3_UM.sql
+PURPOSE: Fun with Function--- Create an Ad Hoc SQL query
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+
+*****************************************************************************************************************
+      Let's create an Ad Hoc SQL query to get the information from the table.
+
+        SELECT SUBSTRING(ContactName, 1, CHARINDEX(' ', ContactName) - 1) AS FirstName
+        FROM [dbo].[t_w3_schools_customers]
+        
+        
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s4_UM.sql
+PURPOSE: Fun with Function--- Research and test a solution:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+*****************************************************************************************************************
+ --- We can test the above SQL query by running it against the [dbo].[t_w3_schools_customers]
+ --- table and checking if it returns the expected results.
+ 
+        
+        
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s5_UM.sql
+PURPOSE: Fun with Function --- Create a user-defined scalar function:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+
+*****************************************************************************************************************
+--- We can test the above SQL query by running it against the [dbo].[t_w3_schools_customers]
+--- table and checking if it returns the expected results.
+        
+         CREATE FUNCTION dbo.GetFirstName (@ContactName VARCHAR(100))
+  RETURNS VARCHAR(50)
+  AS
+  BEGIN
+      DECLARE @FirstName VARCHAR(50)
+      SET @FirstName = SUBSTRING(@ContactName, 1, CHARINDEX(' ', @ContactName) - 1)
+      RETURN @FirstName
+  END
+
+---We call this function in our SQL query:
+
+      SELECT dbo.GetFirstName(ContactName) AS FirstName
+      FROM [dbo].[t_w3_schools_customers]
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s6_UM.sql
+PURPOSE: Fun with Function--- Compare udf results to ad hoc query results:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+*****************************************************************************************************************
+--- We can compare the results of the user-defined scalar function and the ad hoc SQL 
+--- query to ensure they both return the same results.
+       
+       
+       
+ 
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s7_UM.sql
+PURPOSE: Fun with Function--- Perform a "0 results expected" test:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+
+*****************************************************************************************************************
+--- Perform a "0 results expected" test by running the SQL query against the [dbo].[t_w3_schools_customers]
+--- table to ensure that it does not return any errors or unexpected results.
+        
+        
+        
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s8_UM.sql
+PURPOSE: Fun with Function--- Ask the next question:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions 
+
+*****************************************************************************************************************
+--- Q2 How to extract last name from Contact name?
+
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s2_UM.sql
+PURPOSE: Fun with Function--- Create an answer for question 2.
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions  
+
+*****************************************************************************************************************
+--- Let's query the database for the answer.
+
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s3_UM.sql
+PURPOSE: Fun with Function--- Create an Ad Hoc SQL query:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions  
+
+*****************************************************************************************************************
+--- We can use the following SQL query to extract the last name from the ContactName column 
+--- in the [dbo].[t_w3_schools_customers] table:
+   
+   SELECT SUBSTRING(ContactName, CHARINDEX(' ', ContactName) + 1
+          , LEN(ContactName) - CHARINDEX(' ', ContactName)) AS LastName
+   FROM [dbo].[t_w3_schools_customers]
+
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s4_UM.sql
+PURPOSE: Fun with Function--- Research and test a solution:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions  
+
+*****************************************************************************************************************
+--- We can test the above SQL query by running it against the [dbo].[t_w3_schools_customers] table 
+--- and checking if it returns the expected results.
+
+
+
+
+
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s5_UM.sql
+PURPOSE: Fun with Function--- Create a user-defined scalar function:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions  
+
+*****************************************************************************************************************
+--- Create a user-defined scalar function to extract the last name from the ContactName column
+   
+        CREATE FUNCTION dbo.GetLastName (@ContactName VARCHAR(100))
+    RETURNS VARCHAR(50)
+    AS
+    BEGIN
+        DECLARE @LastName VARCHAR(50)
+        SET @LastName = SUBSTRING(@ContactName, CHARINDEX(' ', @ContactName) + 1, LEN(@ContactName) - CHARINDEX(' ', @ContactName))
+    RETURN @LastName
+    END
+   
+ ---We call this function in our SQL query:
+ 
+        SELECT dbo.GetLastName(ContactName) AS LastName
+        FROM [dbo].[t_w3_schools_customers]
+
+
+   
+/*****************************************************************************************************************
+NAME:    My Script Name   EC_IT143_W2.1_fwf_s6_UM.sql
+PURPOSE: Fun with Function--- Perform a "0 results expected" test:
+
+MODIFICATION LOG:
+Ver      Date        Author        Description
+-----   ----------   -----------   -------------------------------------------------------------------------------
+1.0     03/24/2023   Uduak Mbaba       1. Built this script for EC IT143
+
+
+RUNTIME: 
+Xm Xs
+
+NOTES:This script is for T-SQL Data Manipulation - Fun with Functions  
+
+*****************************************************************************************************************
+--- Perform a "0 results expected" test by running the SQL query against the 
+--- [dbo].[t_w3_schools_customers] table to ensure that it does not return any errors or unexpected results.
+
+
+
+
